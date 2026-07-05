@@ -11,8 +11,9 @@ constraintlayout = "2.1.4"
 androidx-navigation = "2.9.4"
 androidx-lifecycle = "2.9.2"
 coroutines = "1.10.2"
-
-
+android-hilt = "2.59.2"
+ksp = "2.2.20-2.0.3"
+androidx-datastore = "1.2.1"
 
 
 
@@ -27,8 +28,8 @@ androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", ve
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidx-navigation" }
-androidx-navigation-ui={ group="androidx.navigation", name="navigation-ui-ktx", version.ref="androidx-navigation" }
-androidx-lifecycle-runtime={ group="androidx.lifecycle", name="lifecycle-runtime-ktx", version.ref="androidx-lifecycle" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "androidx-navigation" }
+androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 
 androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "androidx-lifecycle" }
@@ -37,7 +38,11 @@ coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
+android-hilt = { module = "com.google.dagger:hilt-android", version.ref = "android-hilt" }
+android-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "android-hilt" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-
+android-hilt = { id = "com.google.dagger.hilt.android", version.ref = "android-hilt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
