@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/splash_fragment"
-       android:name="com.example.finflow.feature.splash.presentation.ui.SplashFragment"
+        android:name="com.example.finflow.feature.splash.presentation.ui.SplashFragment"
         android:label="Splash">
 
         <action
             android:id="@+id/action_splash_to_login"
-            app:destination="@+id/login_fragment"/>
+            app:destination="@+id/login_fragment" />
 
         <action
             android:id="@+id/action_splash_to_home"
-            app:destination="@+id/home_fragment"/>
+            app:destination="@+id/home_fragment" />
 
     </fragment>
 
@@ -24,7 +24,9 @@
         android:id="@+id/login_fragment"
         android:name="com.example.finflow.feature.auth.presentation.ui.LoginFragment"
         android:label="Login">
-
+        <action
+            android:id="@+id/action_login_to_home"
+            app:destination="@id/home_fragment" />
     </fragment>
     <fragment
         android:id="@+id/home_fragment"
@@ -32,7 +34,6 @@
         android:label="Home">
 
     </fragment>
-
 
 
 </navigation>

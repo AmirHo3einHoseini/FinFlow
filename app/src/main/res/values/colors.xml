@@ -3,8 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!-- Brand -->
-    <color name="brand_primary">#0F4C81</color>
-    <color name="brand_primary_dark">#0A3559</color>
+    <color name="primary">#2563EB</color>
+    <color name="primary_dark">#1D4ED8</color>
     <color name="brand_secondary">#18A999</color>
 
     <!-- Surface -->
@@ -12,15 +12,16 @@
     <color name="surface_variant">#F5F7FA</color>
 
     <!-- Background -->
-    <color name="background">#F3F5F9</color>
+    <color name="background">#F8FAFC</color>
 
     <!-- Text -->
-    <color name="text_primary">#1A1A1A</color>
-    <color name="text_secondary">#666666</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="divider">#E5E7EB</color>
 
     <!-- Semantic -->
-    <color name="success">#2E7D32</color>
-    <color name="warning">#F9A825</color>
-    <color name="error">#D32F2F</color>
+    <color name="success">#22C55E</color>
+    <color name="warning">#EF4444</color>
+    <color name="error">#EF4444</color>
     <color name="info">#1976D2</color>
 </resources>
