@@ -1,7 +1,7 @@
 package com.example.finflow.core.di.repository
 
-import com.example.finflow.feature.splash.data.repository.SessionRepositoryImpl
-import com.example.finflow.feature.splash.domain.repository.SessionRepository
+import com.example.finflow.core.data.repository.SessionRepositoryImpl
+import com.example.finflow.core.domain.repository.SessionRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

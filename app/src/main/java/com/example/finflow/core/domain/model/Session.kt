@@ -1,4 +1,4 @@
-package com.example.finflow.feature.splash.domain.model
+package com.example.finflow.core.domain.model
 
 data class Session(
 

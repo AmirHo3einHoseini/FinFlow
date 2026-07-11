@@ -13,7 +13,7 @@ class ValidatePasswordUseCase @Inject constructor() {
         }
 
         if (password.length < 8) {
-            ValidationResult.Error(ValidationError.WEAK_PASSWORD)
+        return    ValidationResult.Error(ValidationError.WEAK_PASSWORD)
         }
         return ValidationResult.Success
     }

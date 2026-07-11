@@ -11,4 +11,13 @@
     <string name="forgot_password">Forgot Password ?</string>
     <string name="sign_in">Sign In</string>
     <string name="continue_as_guest">Continue as Guest</string>
+    <string name="welcome_header">Welcome</string>
+    <string name="total_stock">موجودی کل</string>
+    <string name="quick_access">دسترسی سریع</string>
+    <string name="saving">پس انداز</string>
+    <string name="this_month_cost">هزینه این ماه</string>
+    <string name="this_month_income">درآمد این ماه</string>
+    <string name="toman">تومان</string>
+    <string name="transaction">تراکنش ها</string>
+    <string name="income_registration">ثبت درآمد</string>
 </resources>

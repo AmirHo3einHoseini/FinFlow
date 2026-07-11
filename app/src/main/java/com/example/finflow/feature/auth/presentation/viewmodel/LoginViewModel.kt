@@ -2,8 +2,10 @@ package com.example.finflow.feature.auth.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.finflow.feature.auth.domain.model.LoginResult
 import com.example.finflow.feature.auth.domain.model.ValidationError
 import com.example.finflow.feature.auth.domain.model.ValidationResult
+import com.example.finflow.feature.auth.domain.usecase.LoginUseCase
 import com.example.finflow.feature.auth.domain.usecase.ValidateEmailUseCase
 import com.example.finflow.feature.auth.domain.usecase.ValidatePasswordUseCase
 import com.example.finflow.feature.auth.presentation.event.LoginEvent
@@ -20,8 +22,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val validateEmailUseCase: ValidateEmailUseCase,
-    private val validatePasswordUseCase: ValidatePasswordUseCase
+    private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
 
@@ -32,14 +33,12 @@ class LoginViewModel @Inject constructor(
 
 
     fun onEmailChanged(email: String) {
-
         _uiState.update {
             it.copy(
                 email = email,
                 emailError = null
             )
         }
-
     }
 
     fun onPasswordChanged(password: String) {
@@ -52,52 +51,54 @@ class LoginViewModel @Inject constructor(
     }
 
     fun onLoginClicked() {
-        val emailResult = validateEmailUseCase(uiState.value.email)
+        viewModelScope.launch {
+            when (val result = loginUseCase(uiState.value.email, uiState.value.password)) {
+                LoginResult.Success -> {
+                    _event.emit(LoginEvent.NavigateToHome)
 
-        val passwordResult = validatePasswordUseCase(uiState.value.password)
+                }
 
-        _uiState.update {
-            it.copy(
-                emailError = mapEmailError(emailResult),
-                passwordError = mapPasswordError(passwordResult)
-            )
-        }
+                is LoginResult.ValidationFailed -> {
+                    _uiState.update {
+                        it.copy(
+                            emailError = mapEmailError(result.error),
+                            passwordError = mapPasswordError(result.error)
+                        )
+                    }
+                }
 
-        if (emailResult is ValidationResult.Success && passwordResult is ValidationResult.Success) {
-            viewModelScope.launch {
-                _event.emit(LoginEvent.NavigateToHome)
+                is LoginResult.LoginFailed -> {
+
+                }
+
+                else -> {}
             }
         }
+
+
     }
 
-    private fun mapEmailError(result: ValidationResult): String? =
+    private fun mapEmailError(result: ValidationError): String? =
         when (result) {
-            ValidationResult.Error(ValidationError.EMPTY_EMAIL) -> {
+            ValidationError.EMPTY_EMAIL ->
                 "Email is required"
-            }
 
-            ValidationResult.Error(ValidationError.INVALID_EMAIL) -> {
+            ValidationError.INVALID_EMAIL ->
                 "Enter a Valid Email"
-            }
 
             else -> null
-
         }
 
 
-    fun mapPasswordError(validationResult: ValidationResult): String? =
-
-        when (validationResult) {
-            ValidationResult.Error(ValidationError.EMPTY_PASSWORD) -> {
+    fun mapPasswordError(result: ValidationError): String? =
+        when (result) {
+            ValidationError.EMPTY_PASSWORD ->
                 "Password is required"
-            }
 
-            ValidationResult.Error(ValidationError.WEAK_PASSWORD) -> {
+            ValidationError.WEAK_PASSWORD ->
                 "Password must be at least 8 character"
-            }
 
             else -> null
         }
-
 
 }

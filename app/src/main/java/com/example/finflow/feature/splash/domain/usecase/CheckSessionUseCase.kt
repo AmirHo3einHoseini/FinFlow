@@ -1,10 +1,8 @@
 package com.example.finflow.feature.splash.domain.usecase
 
 import com.example.finflow.feature.splash.domain.model.CheckSessionResult
-import com.example.finflow.feature.splash.domain.repository.SessionRepository
-import kotlinx.coroutines.flow.Flow
+import com.example.finflow.core.domain.repository.SessionRepository
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class CheckSessionUseCase @Inject constructor(

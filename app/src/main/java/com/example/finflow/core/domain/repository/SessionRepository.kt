@@ -1,6 +1,6 @@
-package com.example.finflow.feature.splash.domain.repository
+package com.example.finflow.core.domain.repository
 
-import com.example.finflow.feature.splash.domain.model.Session
+import com.example.finflow.core.domain.model.Session
 import kotlinx.coroutines.flow.Flow
 
 interface SessionRepository {
