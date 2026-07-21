@@ -20,4 +20,12 @@
     <string name="toman">تومان</string>
     <string name="transaction">تراکنش ها</string>
     <string name="income_registration">ثبت درآمد</string>
+    <string name="income">درآمد</string>
+    <string name="expense">هزینه</string>
+    <string name="amount">مبلغ</string>
+    <string name="category">دسته بندی</string>
+    <string name="transport">حمل و نقل</string>
+    <string name="add_transaction">ثبت تراکنش</string>
+    <string name="add_new">جدید</string>
+    <string name="category_management">مدیریت دسته بندی ها </string>
 </resources>
